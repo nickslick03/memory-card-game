@@ -47,7 +47,7 @@ type CardsProps = {
 const Card = ({ character: { name, img }, addIndex }: CardProps) => {
     return (
         <div 
-        className='relative w-60 h-80 hover:scale-105 transition-all' onClick={addIndex}>
+        className='relative w-60 h-80 rounded-xl shadow-md shadow-slate-400 hover:scale-105 transition-all' onClick={addIndex}>
             <img src={img} alt={name} className='h-full w-auto object-cover rounded-xl'/>
             <div className='absolute bottom-0 text-lg p-1 pr-10 rounded-bl-xl bg-gradient-to-r from-yellow-200 to-transparent'>
                 {name}
