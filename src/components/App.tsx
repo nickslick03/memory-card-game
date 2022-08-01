@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { pause } from '../pause';
 import { Cards } from './Cards';
 import './index.css';
 
@@ -19,7 +18,7 @@ export const App = () => {
 
   return (
     <>
-      <header className='p-4 box-border flex justify-between bg-green-700'>
+      <header className='text-white p-4 box-border flex justify-between bg-red-800'>
         <div className='text-center'>
           <h1 className='text-2xl'>Gravity Falls</h1>
           —
@@ -34,5 +33,5 @@ export const App = () => {
         <Cards addIndex={addIndex}/>
       </main>
     </>
-  )
+  );
 };
