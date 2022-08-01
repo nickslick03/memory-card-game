@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { pause } from "../pause";
+import React from "react";
 import { randomArray } from "../randomArray";
 import Dipper from '../assets/Dipper.png';
 import Mabel from '../assets/Mabel.png';
@@ -57,6 +56,6 @@ const Card = ({ character: { name, img }, addIndex }: CardProps) => {
 };
 
 export const Cards = ({ addIndex }: CardsProps) => {
-    const JSXArray = characters.map((character, index) => <Card key={index} character={character} addIndex={() => addIndex(index)}/>);
-    return <>{randomArray(JSXArray)}</>;
+    const JSXArray = characters.map((character, index) => <Card key={index} character={character} addIndex={(e) => addIndex(index, e)}/>);
+    return <> {randomArray(JSXArray)} </>;
 };
