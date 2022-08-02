@@ -11,7 +11,7 @@ export const App = () => {
   const currentScore = indexList.length;
   const pageCoords = useRef({pageX: 0, pageY: 0});
 
-  const addIndex = (index: number, { pageX, pageY }: React.MouseEvent) => {
+  const updateScore = (index: number, { pageX, pageY }: React.MouseEvent) => {
     pageCoords.current = { 
       pageX, 
       pageY,
@@ -24,7 +24,7 @@ export const App = () => {
       setIsCorrect(true);
     }
   };
-
+  
   useEffect(() => {
     if (highScore < currentScore) setHighScore(currentScore);
   }, [indexList]);
@@ -46,7 +46,7 @@ export const App = () => {
         </div>
       </header>
       <main className='p-4 flex flex-wrap justify-center gap-3'>
-        <Cards addIndex={addIndex} />
+        <Cards updateScore={updateScore} key={currentScore}/>
       </main>
     </>
   );

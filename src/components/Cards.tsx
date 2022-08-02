@@ -36,17 +36,17 @@ const characters: Character[] = [
 
 type CardProps = {
     character: Character,
-    addIndex: React.MouseEventHandler,
+    updateScore: React.MouseEventHandler,
 };
 
 type CardsProps = {
-    addIndex: Function,
+    updateScore: Function,
 };
 
-const Card = ({ character: { name, img }, addIndex }: CardProps) => {
+const Card = ({ character: { name, img }, updateScore }: CardProps) => {
     return (
         <div 
-        className='relative w-60 h-80 rounded-xl shadow-md shadow-slate-400 hover:scale-105 transition-all' onClick={addIndex}>
+        className='relative w-60 h-80 rounded-xl shadow-md shadow-slate-400 hover:scale-105 transition-all' onClick={updateScore}>
             <img src={img} alt={name} className='h-full w-auto object-cover rounded-xl'/>
             <div className='absolute bottom-0 text-lg p-1 pr-10 rounded-bl-xl bg-gradient-to-r from-yellow-200 to-transparent'>
                 {name}
@@ -55,7 +55,8 @@ const Card = ({ character: { name, img }, addIndex }: CardProps) => {
     );
 };
 
-export const Cards = ({ addIndex }: CardsProps) => {
-    const JSXArray = characters.map((character, index) => <Card key={index} character={character} addIndex={(e) => addIndex(index, e)}/>);
+export const Cards = ({ updateScore }: CardsProps) => {
+    const JSXArray = characters.map((character, index) => <Card key={index} character={character} updateScore={(e) => updateScore(index, e)}/>);
+
     return <> {randomArray(JSXArray)} </>;
 };
